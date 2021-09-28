@@ -10,7 +10,7 @@ public struct linkdinamico {
         var urlDefault = URL(string: "https://www.videoconferenciaclaro.com/")!
         
         guard let link = URL(string: "https://www.videoconferenciaclaro.com") else { return urlDefault}
-        let dynamicLinksDomainURIPrefix = "https://generatedynamiclink.page.link"
+        let dynamicLinksDomainURIPrefix = "https://testvcc.page.link"
         let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
         linkBuilder!.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.DynamicLinksvcclaro2")
         linkBuilder!.androidParameters = DynamicLinkAndroidParameters(packageName: "com.example.receivedynamiclink")
