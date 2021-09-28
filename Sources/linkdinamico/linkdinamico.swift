@@ -25,7 +25,7 @@ public struct linkdinamico {
         urlDefault = longDynamicLink
         
         linkBuilder!.shorten() { url, warnings, error in
-          guard let url = url, error == nil else { return }
+          guard let url = url else { return }
           print("The short URL is: \(url)")
           urlDefault = url
         }
