@@ -1,15 +1,14 @@
 import FirebaseDynamicLinks
 
 public struct linkdinamico {
-    
+        
     public init() {
         
     }
     
-    public func generateDynamicLinks() -> URL{
-        var urlDefault = URL(string: "https://www.videoconferenciaclaro.com/")!
+    public func generateDynamicLinks(completion: @escaping (Any) -> Void){
         
-        guard let link = URL(string: "https://www.videoconferenciaclaro.com") else { return urlDefault}
+        guard let link = URL(string: "https://www.videoconferenciaclaro.com") else { return }
         let dynamicLinksDomainURIPrefix = "https://testvcc.page.link"
         let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
         linkBuilder!.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.DynamicLinksvcclaro2")
@@ -20,18 +19,15 @@ public struct linkdinamico {
         linkBuilder!.socialMetaTagParameters?.title = "Ejemplo de parametro"
         linkBuilder!.socialMetaTagParameters?.descriptionText = "Enlace de descripcion"
         
-        guard let longDynamicLink = linkBuilder!.url else { return urlDefault}
+        guard let longDynamicLink = linkBuilder!.url else { return }
         print("The long URL is: \(longDynamicLink)")
-        urlDefault = longDynamicLink
         
-        DispatchQueue.main.async {
             linkBuilder!.shorten() { url, warnings, error in
               guard let url = url, error == nil else { return }
               print("The short URL is: \(url)")
-              urlDefault = url
+                completion(url)
             }
-        }
         
-        return urlDefault
+        
     }
 }
