@@ -1,4 +1,5 @@
 import FirebaseDynamicLinks
+import Foundation
 
 public struct linkdinamico {
         
@@ -6,7 +7,7 @@ public struct linkdinamico {
         
     }
     
-    public func generateDynamicLinks(completion: @escaping (Any) -> Void){
+    public func generateDynamicLinks(completion: @escaping (Result<URL,Error>) -> Void){
         
         guard let link = URL(string: "https://www.videoconferenciaclaro.com") else { return }
         let dynamicLinksDomainURIPrefix = "https://testvcc.page.link"
@@ -25,7 +26,7 @@ public struct linkdinamico {
             linkBuilder!.shorten() { url, warnings, error in
               guard let url = url, error == nil else { return }
               print("The short URL is: \(url)")
-                completion(url)
+                completion(.success(url))
             }
         
         
