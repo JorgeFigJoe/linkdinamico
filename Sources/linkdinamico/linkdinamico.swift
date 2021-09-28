@@ -22,9 +22,13 @@ public struct linkdinamico {
         
         guard let longDynamicLink = linkBuilder!.url else { return }
         print("The long URL is: \(longDynamicLink)")
-        completion(.success(longDynamicLink))
+        //completion(.success(longDynamicLink))
+        
+        
             linkBuilder!.shorten() { url, warnings, error in
-              guard let url = url, error == nil else { return }
+              print("URL is: \(url)")
+                print("error is: \(error)")
+              guard let url = url else { return }
               print("The short URL is: \(url)")
                 completion(.success(url))
             }
