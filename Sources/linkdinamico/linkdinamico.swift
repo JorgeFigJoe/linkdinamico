@@ -21,7 +21,7 @@ public struct linkdinamico {
         linkBuilder!.socialMetaTagParameters?.descriptionText = "Enlace de descripcion"
         
         guard let longDynamicLink = linkBuilder!.url else { return }
-        print("The long URL is: \(longDynamicLink)")
+        //print("The long URL is: \(longDynamicLink)")
         //completion(.success(longDynamicLink))
         
         
@@ -29,10 +29,10 @@ public struct linkdinamico {
               //guard let url = url else { return  }
                 
                 if let url2 = url {
-                    print("The short URL is: \(url2)")
+                    //print("The short URL is: \(url2)")
                       completion(.success(url2))
                 }else{
-                    print("The long URL is: \(longDynamicLink)")
+                   // print("The long URL is: \(longDynamicLink)")
                       completion(.success(longDynamicLink))
                 }
             }
