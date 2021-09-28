@@ -2,6 +2,10 @@ import FirebaseDynamicLinks
 
 public struct linkdinamico {
     
+    public init() {
+        
+    }
+    
     public func generateDynamicLinks() -> URL{
         var urlDefault = URL(string: "https://www.videoconferenciaclaro.com/")!
         
