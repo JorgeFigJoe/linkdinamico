@@ -1,5 +1,6 @@
 import FirebaseDynamicLinks
 import Foundation
+import UIKit
 
 public struct linkdinamico {
         
@@ -51,6 +52,7 @@ public struct linkdinamico {
                            if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]{
                                guard let shortDynamicLink = json["shortLink"] as? String else {return}
                                let shortDynamicLinkURL = URL(string: shortDynamicLink)!
+                               UIApplication.shared.open(shortDynamicLinkURL)
                                completion(.success(shortDynamicLinkURL))
                            }
                        } catch {
