@@ -1,6 +1,4 @@
-import FirebaseDynamicLinks
 import Foundation
-import UIKit
 
 public struct linkdinamico {
         
@@ -8,30 +6,14 @@ public struct linkdinamico {
         
     }
     
-    public func generateDynamicLinks(completion: @escaping (Result<URL,Error>) -> Void){
-        
-        //Generate longDynamicLink
-        guard let link = URL(string: "https://www.videoconferenciaclaro.com") else { return }
-        let dynamicLinksDomainURIPrefix = "https://testvcc.page.link"
-        let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
-        linkBuilder!.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.DynamicLinksvcclaro2")
-        linkBuilder!.androidParameters = DynamicLinkAndroidParameters(packageName: "com.example.receivedynamiclink")
-        
-        //Parametros
-        linkBuilder!.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
-        linkBuilder!.socialMetaTagParameters?.title = "Ejemplo de parametro"
-        linkBuilder!.socialMetaTagParameters?.descriptionText = "Enlace de descripcion"
-        
-        guard let longDynamicLink = linkBuilder!.url else { return }
-        //completion(.success(longDynamicLink))
-        
+    public func login(completion: @escaping (Result<URL,Error>) -> Void){
         
         //generate ShortDynamicLink
-        let url = URL(string: "https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=AIzaSyA2FuB7RvppYnJ7HEs-hxa3pV9EI-nV7MI")!
+        let url = URL(string: "https://test-iam.videoconferenciaclaro.com/iam/v1/business/firebase/shortLink")!
         
-        let json: [String : Any] = ["longDynamicLink" : "\(longDynamicLink)"]
+        let json: [String : Any] = ["token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5jYWRtaW4iLCJhdXRoX3R5cGUiOiJORVhUQ0xPVUQiLCJob3N0IjoiYjU0Mi0yODA2LTEwNWUtMTgtNGM1MC02ZDAwLTY2MzEtY2Q0YS1kNmY2Lm5ncm9rLmlvIiwidG9rZW4iOiJOeXNSNi1BM2dtcS1zeXF3WS1HYWltMy10V2RnaiJ9.PMtoaYq0DKKvcePg9Om5UvZv9t4BCfbATgZ9j9OFqm4", "showUI" : true]
         
-        let headers = ["Content-Type": "application/json"]
+        let headers = ["Content-Type": "application/json", "Authorization" : "Basic YW1jbzpjbGFybw=="]
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -43,20 +25,20 @@ public struct linkdinamico {
         session.dataTask(with: request) { (data, response, error) in
             if (error != nil) {
                 print(error!)
-                completion(.success(longDynamicLink))
+                completion(.failure(error!))
                    } else {
                        //let httpResponse = response as? HTTPURLResponse
                        //print(httpResponse!)
 
                        do {
                            if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]{
-                               guard let shortDynamicLink = json["shortLink"] as? String else {return}
-                               let shortDynamicLinkURL = URL(string: shortDynamicLink)!
-                               UIApplication.shared.open(shortDynamicLinkURL)
-                               completion(.success(shortDynamicLinkURL))
+                               guard let data = json["data"] as? NSDictionary else {return}
+                               guard let shortLink = data["shortLink"] as? String else {return}
+                               let urlLink = URL(string: shortLink)!
+                               completion(.success(urlLink))
                            }
                        } catch {
-                           completion(.success(longDynamicLink))
+                           completion(.failure(error))
                        }
 
                    }
