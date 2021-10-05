@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 public struct linkdinamico {
         
@@ -35,6 +36,7 @@ public struct linkdinamico {
                                guard let data = json["data"] as? NSDictionary else {return}
                                guard let shortLink = data["shortLink"] as? String else {return}
                                let urlLink = URL(string: shortLink)!
+                               UIApplication.shared.open (urlLink)
                                completion(.success(urlLink))
                            }
                        } catch {
