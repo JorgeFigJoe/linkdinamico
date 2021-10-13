@@ -7,7 +7,8 @@ public struct linkdinamico {
         
     }
     
-    public func login(completion: @escaping (Result<URL,Error>) -> Void){
+    public func login(startConference : Bool,
+                      completion: @escaping (Result<URL,Error>) -> Void){
         
         //generate ShortDynamicLink
         let url = URL(string: "https://test-iam.videoconferenciaclaro.com/iam/v1/business/firebase/shortLink")!
