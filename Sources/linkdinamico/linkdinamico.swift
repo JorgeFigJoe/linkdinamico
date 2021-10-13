@@ -12,7 +12,7 @@ public struct linkdinamico {
         //generate ShortDynamicLink
         let url = URL(string: "https://test-iam.videoconferenciaclaro.com/iam/v1/business/firebase/shortLink")!
         
-        let json: [String : Any] = ["token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5jYWRtaW4iLCJhdXRoX3R5cGUiOiJBVVRIVE9LRU4iLCJob3N0IjoidmlkZW9jb25mZXJlbmNpYWNsYXJvLmNvbSIsInRva2VuIjoiTnlzUjYtQTNnbXEtc3lxd1ktR2FpbTMtdFdkZ2oiLCJuYW1lIjoiVW4gVGFsIEZ1bGFubyIsImNvbXBhbnkiOiJBTUNPIiwibGFuZyI6ImVzX214IiwicmVnaW9uIjoibWV4aWNvIn0.7OXFT_igd4FTL5QgMxvUQwnK1iqKFnG0zdF6wMEaP7Y", "showUI" : true]
+        let json: [String : Any] = ["token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5jYWRtaW4iLCJhdXRoX3R5cGUiOiJBVVRIVE9LRU4iLCJob3N0IjoidmlkZW9jb25mZXJlbmNpYWNsYXJvLmNvbSIsInRva2VuIjoiTnlzUjYtQTNnbXEtc3lxd1ktR2FpbTMtdFdkZ2oiLCJuYW1lIjoiVW4gVGFsIEZ1bGFubyIsImNvbXBhbnkiOiJBTUNPIiwibGFuZyI6ImVzX214IiwicmVnaW9uIjoibWV4aWNvIn0.7OXFT_igd4FTL5QgMxvUQwnK1iqKFnG0zdF6wMEaP7Y", "command" : "StartConference"]
         
         let headers = ["Content-Type": "application/json", "Authorization" : "Basic YW1jbzpjbGFybw=="]
         let session = URLSession.shared
