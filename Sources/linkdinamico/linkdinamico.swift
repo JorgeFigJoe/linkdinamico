@@ -7,7 +7,9 @@ public struct linkdinamico {
         
     }
     
-    public func login(startConference : Bool,
+    public func login(command : String,
+                     // token : String,
+                     // auth : String,
                       completion: @escaping (Result<URL,Error>) -> Void){
         
         //generate ShortDynamicLink
