@@ -1,12 +1,12 @@
 import Foundation
 import UIKit
 
- struct linkdinamico {
+ public struct linkdinamico {
     
     var type : typeClass = .MANAGEMENT
         
-    public init(type : typeClass) {
-        self.type = type
+    public init() {
+    
     }
      
     
