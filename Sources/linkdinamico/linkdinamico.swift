@@ -20,7 +20,7 @@ import UIKit
     }
     
      public func login(type : String,
-                       command : String,
+                       //command : String,
                        token : String,
                        //showPIP : Bool,
                        confId : String,
