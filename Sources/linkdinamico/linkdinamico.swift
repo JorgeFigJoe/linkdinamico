@@ -1,9 +1,9 @@
 import Foundation
 import UIKit
 
- public struct linkdinamico {
+  struct linkdinamico {
     
-    var type : typeClass = .MANAGEMENT
+    public var type : typeClass = .MANAGEMENT
         
     public init() {
     
