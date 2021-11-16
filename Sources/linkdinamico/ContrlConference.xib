@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,10 +14,59 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ControlConference" customModule="linkdinamico">
             <rect key="frame" x="0.0" y="0.0" width="428" height="210"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUK-uU-DxI">
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="210"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiS-my-nA6">
+                            <rect key="frame" x="8" y="90" width="67" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8x-Ec-TJu">
+                            <rect key="frame" x="353" y="90" width="67" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-eW-ims">
+                            <rect key="frame" x="144" y="36.5" width="140" height="137"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="140" id="1Lu-kY-UWB"/>
+                                <constraint firstAttribute="width" constant="140" id="Yhj-Ip-XfI"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="KiS-my-nA6" firstAttribute="centerY" secondItem="dIr-eW-ims" secondAttribute="centerY" id="TVd-9g-hv5"/>
+                        <constraint firstItem="B8x-Ec-TJu" firstAttribute="bottom" secondItem="KiS-my-nA6" secondAttribute="bottom" id="VCu-cS-14Z"/>
+                        <constraint firstItem="KiS-my-nA6" firstAttribute="leading" secondItem="TUK-uU-DxI" secondAttribute="leading" constant="8" id="Yg4-fd-ls2"/>
+                        <constraint firstItem="dIr-eW-ims" firstAttribute="centerY" secondItem="TUK-uU-DxI" secondAttribute="centerY" id="e4m-aA-Cop"/>
+                        <constraint firstItem="dIr-eW-ims" firstAttribute="centerX" secondItem="TUK-uU-DxI" secondAttribute="centerX" id="efr-P3-lp1"/>
+                        <constraint firstItem="B8x-Ec-TJu" firstAttribute="centerY" secondItem="dIr-eW-ims" secondAttribute="centerY" id="iPE-hC-DsT"/>
+                        <constraint firstItem="KiS-my-nA6" firstAttribute="top" secondItem="TUK-uU-DxI" secondAttribute="top" constant="90" id="qqi-m2-RRw"/>
+                        <constraint firstItem="dIr-eW-ims" firstAttribute="leading" secondItem="KiS-my-nA6" secondAttribute="trailing" constant="69" id="rkf-Ub-JQ5"/>
+                        <constraint firstItem="B8x-Ec-TJu" firstAttribute="leading" secondItem="dIr-eW-ims" secondAttribute="trailing" constant="69" id="v66-5Z-4rS"/>
+                        <constraint firstAttribute="trailing" secondItem="B8x-Ec-TJu" secondAttribute="trailing" constant="8" id="wAU-iZ-YEL"/>
+                    </constraints>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="TUK-uU-DxI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CIF-Fr-ztS"/>
+                <constraint firstAttribute="bottom" secondItem="TUK-uU-DxI" secondAttribute="bottom" id="i1Y-03-anE"/>
+                <constraint firstItem="TUK-uU-DxI" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="oSR-eZ-BJs"/>
+                <constraint firstItem="TUK-uU-DxI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wwe-hq-VjT"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-86.956521739130437" y="238.39285714285714"/>
         </view>
     </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
