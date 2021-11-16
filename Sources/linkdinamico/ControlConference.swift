@@ -10,7 +10,6 @@ import UIKit
 
 class ControlConference : UIView {
     
-    @IBOutlet weak var controlButton: UIButton!
     override init (frame : CGRect) {
         super.init(frame : frame)
         
@@ -20,7 +19,5 @@ class ControlConference : UIView {
       super.init(coder: aDecoder)
     }
     
-    @IBAction func controlButtonAction(_ sender: Any) {
-        print("Accion de control de boton")
-    }
+    
 }
