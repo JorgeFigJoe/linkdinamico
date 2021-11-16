@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,20 +20,27 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gWw-tk-Cyi">
                             <rect key="frame" x="139" y="54.5" width="50" height="47"/>
+                            <color key="tintColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="7Jy-LW-pNx"/>
                                 <constraint firstAttribute="height" constant="50" id="pW2-fq-Yas"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-il-HSk">
-                            <rect key="frame" x="205" y="62.5" width="67" height="31"/>
+                            <rect key="frame" x="205" y="62.5" width="52.5" height="31"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <imageReference key="image" image="teletype.answer" catalog="system" symbolScale="large"/>
+                                <color key="baseForegroundColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                            </buttonConfiguration>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-YI-11n">
-                            <rect key="frame" x="56" y="62.5" width="67" height="31"/>
+                            <rect key="frame" x="78.5" y="62.5" width="44.5" height="31"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" ">
+                                <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
+                                <color key="baseForegroundColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,6 +67,8 @@
         </view>
     </objects>
     <resources>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="teletype.answer" catalog="system" width="128" height="89"/>
     </resources>
 </document>
