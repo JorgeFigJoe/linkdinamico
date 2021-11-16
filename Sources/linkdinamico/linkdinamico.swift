@@ -102,7 +102,7 @@ import UIKit
      }
      
      public func openModule(view : UIView) {
-         let controls = ControlConference(frame: CGRect(x: 0 , y: 0, width: view.frame.width/2, height: view.frame.width/2) )
+         let controls = ControlConference(frame: CGRect(x: 0 , y: 20, width: view.frame.width/2, height: view.frame.width/2) )
          view.addSubview(controls)
          //return controls
          
