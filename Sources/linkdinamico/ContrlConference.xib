@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,13 +29,15 @@
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-eW-ims">
                             <rect key="frame" x="144" y="36.5" width="140" height="137"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="140" id="1Lu-kY-UWB"/>
                                 <constraint firstAttribute="width" constant="140" id="Yhj-Ip-XfI"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="KiS-my-nA6" firstAttribute="centerY" secondItem="dIr-eW-ims" secondAttribute="centerY" id="TVd-9g-hv5"/>
                         <constraint firstItem="B8x-Ec-TJu" firstAttribute="bottom" secondItem="KiS-my-nA6" secondAttribute="bottom" id="VCu-cS-14Z"/>
@@ -65,8 +66,5 @@
     </objects>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
