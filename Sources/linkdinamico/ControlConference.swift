@@ -10,6 +10,12 @@ import UIKit
 
 open class ControlConference : UIView {
     
+    @IBOutlet weak var participantImage: UIImageView!
+    @IBOutlet weak var microphoneButtonn: UIButton!
+    @IBOutlet weak var hangUpButton: UIButton!
+    
+    
+    
     override init (frame : CGRect) {
         super.init(frame : frame)
         self.commonInitialization()
@@ -26,5 +32,11 @@ open class ControlConference : UIView {
       self.addSubview(view)
     }
     
+    @IBAction func microphoneAction(_ sender: Any) {
+        print("Accion de microfono")
+    }
     
+    @IBAction func hangUpActionn(_ sender: Any) {
+        print("Accion de colgar llamada")
+    }
 }
