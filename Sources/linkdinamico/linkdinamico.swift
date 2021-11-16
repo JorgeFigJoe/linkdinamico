@@ -101,10 +101,10 @@ import UIKit
          }.resume()
      }
      
-     public func openModule(view : UIView) -> UIView{
-         let controls = ControlConference(frame: CGRect(x: 0 , y: 0, width: view.frame.width, height: view.frame.height * 0.7) )
-         //view.addSubview(controls)
-         return controls
+     public func openModule(view : UIView) {
+         let controls = ControlConference(frame: view.bounds )
+         view.addSubview(controls)
+         //return controls
          
      }
 
