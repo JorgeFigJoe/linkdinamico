@@ -33,6 +33,9 @@
                                 <imageReference key="image" image="teletype.answer" catalog="system" symbolScale="large"/>
                                 <color key="baseForegroundColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="telephoneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="FPl-Uj-hka"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-YI-11n">
                             <rect key="frame" x="78.5" y="62.5" width="44.5" height="31"/>
@@ -41,6 +44,9 @@
                                 <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
                                 <color key="baseForegroundColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="microfoneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Chb-dX-cBu"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

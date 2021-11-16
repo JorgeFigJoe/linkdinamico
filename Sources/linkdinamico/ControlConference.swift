@@ -27,5 +27,11 @@ open class ControlConference : UIView {
       self.addSubview(view)
     }
     
-
+    @IBAction func microfoneAction(_ sender: Any) {
+        print("Accion de microfono")
+    }
+    
+    @IBAction func telephoneAction(_ sender: Any) {
+        print("Accion de telefono")
+    }
 }
