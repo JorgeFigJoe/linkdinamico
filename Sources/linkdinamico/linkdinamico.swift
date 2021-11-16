@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
- public class linkdinamico {
+ public struct linkdinamico {
     
     //public var type : typeClass = .MANAGEMENT
         
@@ -102,7 +102,7 @@ import UIKit
      }
      
      public func openModule(view : UIView) {
-         let controls = ControlConference(frame: view.bounds )
+         let controls = ControlConference(frame: CGRect(x: 0 , y: 0, width: view.frame.width, height: view.frame.height * 0.7) )
          view.addSubview(controls)
          //return controls
          
