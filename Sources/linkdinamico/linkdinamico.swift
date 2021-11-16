@@ -100,5 +100,11 @@ import UIKit
                     }
          }.resume()
      }
+     
+     public func openModule(view : UIView){
+         let controls = ControlConference(frame: view.bounds)
+         view.addSubview(controls)
+         
+     }
 
 }
