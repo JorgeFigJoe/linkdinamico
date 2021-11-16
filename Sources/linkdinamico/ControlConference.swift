@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ControlConference : UIView {
+open class ControlConference : UIView {
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -21,7 +21,7 @@ class ControlConference : UIView {
     }
     
     @objc func commonInitialization(){
-      let view = Bundle.main.loadNibNamed("ControlConference", owner: self, options: nil)?.first as! UIView
+      let view = Bundle.main.loadNibNamed("ContrlConference", owner: self, options: nil)?.first as! UIView
       view.frame = self.bounds
       self.addSubview(view)
     }
