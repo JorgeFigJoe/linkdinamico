@@ -101,9 +101,10 @@ import UIKit
          }.resume()
      }
      
-     public func openModule(view : UIView){
+     public func openModule(view : UIView) -> UIView{
          let controls = ControlConference(frame: view.bounds)
-         view.addSubview(controls)
+         //view.addSubview(controls)
+         return controls
          
      }
 
