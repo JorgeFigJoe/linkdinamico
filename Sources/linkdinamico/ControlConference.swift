@@ -34,4 +34,7 @@ open class ControlConference : UIView {
     @IBAction func telephoneAction(_ sender: Any) {
         print("Accion de telefono")
     }
+    @IBAction func gestureAction(_ sender: Any) {
+        print("Hola")
+    }
 }
