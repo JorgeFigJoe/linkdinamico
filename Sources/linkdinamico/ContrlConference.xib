@@ -27,7 +27,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-YI-11n">
-                            <rect key="frame" x="0.0" y="147" width="45" height="31"/>
+                            <rect key="frame" x="0.0" y="178" width="44.5" height="53"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title=" ">
                                 <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
@@ -38,7 +38,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-il-HSk">
-                            <rect key="frame" x="173" y="147" width="57" height="31"/>
+                            <rect key="frame" x="173.5" y="178" width="56.5" height="53"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title=" ">
                                 <imageReference key="image" image="teletype.answer" catalog="system" symbolScale="large"/>
@@ -52,12 +52,14 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="4hs-YI-11n" firstAttribute="leading" secondItem="LGV-tZ-RrY" secondAttribute="leading" id="2Bd-TT-dyO"/>
-                        <constraint firstItem="ChW-il-HSk" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="-8.5" id="6wF-9e-DMm"/>
-                        <constraint firstItem="4hs-YI-11n" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="-8.5" id="V59-t8-EhS"/>
+                        <constraint firstItem="4hs-YI-11n" firstAttribute="leading" secondItem="LGV-tZ-RrY" secondAttribute="leading" id="AZH-rv-5yV"/>
+                        <constraint firstItem="ChW-il-HSk" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="22.5" id="W6z-di-uYa"/>
+                        <constraint firstAttribute="bottom" secondItem="ChW-il-HSk" secondAttribute="bottom" id="Wo6-fG-TFW"/>
+                        <constraint firstItem="4hs-YI-11n" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="22.5" id="bhd-Jm-rxV"/>
+                        <constraint firstAttribute="trailing" secondItem="ChW-il-HSk" secondAttribute="trailing" id="bt0-zu-BPh"/>
                         <constraint firstItem="gWw-tk-Cyi" firstAttribute="centerY" secondItem="LGV-tZ-RrY" secondAttribute="centerY" id="fi7-cQ-LRM"/>
+                        <constraint firstAttribute="bottom" secondItem="4hs-YI-11n" secondAttribute="bottom" id="jBe-2r-0Ue"/>
                         <constraint firstItem="gWw-tk-Cyi" firstAttribute="centerX" secondItem="LGV-tZ-RrY" secondAttribute="centerX" id="rae-2r-jh8"/>
-                        <constraint firstAttribute="trailing" secondItem="ChW-il-HSk" secondAttribute="trailing" id="wvM-lI-6xc"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="7Nm-CY-VmU" appends="YES" id="uhL-kx-3uL"/>
