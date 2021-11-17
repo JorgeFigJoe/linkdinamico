@@ -59,6 +59,9 @@
                         <constraint firstItem="4hs-YI-11n" firstAttribute="centerY" secondItem="gWw-tk-Cyi" secondAttribute="centerY" id="eh9-CZ-OSV"/>
                         <constraint firstItem="4hs-YI-11n" firstAttribute="baseline" secondItem="ChW-il-HSk" secondAttribute="baseline" id="vp5-18-fKQ"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="7Nm-CY-VmU" appends="YES" id="uhL-kx-3uL"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -70,8 +73,17 @@
                 <constraint firstItem="LGV-tZ-RrY" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ze9-AS-cyl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="hangUpButton" destination="ChW-il-HSk" id="T4H-4x-azK"/>
+                <outlet property="microphoneButton" destination="4hs-YI-11n" id="mfg-ew-iDu"/>
+            </connections>
             <point key="canvasLocation" x="-97.101449275362327" y="220.3125"/>
         </view>
+        <tapGestureRecognizer id="7Nm-CY-VmU">
+            <connections>
+                <action selector="tapGestureAction:" destination="iN0-l3-epB" id="psG-pc-Onl"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
