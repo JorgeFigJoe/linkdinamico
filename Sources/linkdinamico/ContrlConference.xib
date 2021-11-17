@@ -18,9 +18,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGV-tZ-RrY">
                     <rect key="frame" x="0.0" y="0.0" width="230" height="231"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-il-HSk">
-                            <rect key="frame" x="171" y="160" width="59" height="63"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-il-HSk">
+                            <rect key="frame" x="173" y="183" width="57" height="48"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title=" ">
                                 <imageReference key="image" image="teletype.answer" catalog="system" symbolScale="large"/>
@@ -30,9 +29,8 @@
                                 <action selector="telephoneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="FPl-Uj-hka"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-YI-11n">
-                            <rect key="frame" x="0.0" y="160" width="63" height="63"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-YI-11n">
+                            <rect key="frame" x="0.0" y="183" width="45" height="48"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title=" ">
                                 <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
@@ -43,18 +41,24 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gWw-tk-Cyi">
-                            <rect key="frame" x="90" y="92" width="50" height="47"/>
+                            <rect key="frame" x="75" y="77" width="80" height="77"/>
                             <color key="tintColor" red="0.59999999999999998" green="0.10980392160000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="3lT-fA-cVN"/>
-                                <constraint firstAttribute="height" constant="50" id="u5w-Zh-iBu"/>
+                                <constraint firstAttribute="width" constant="80" id="3lT-fA-cVN"/>
+                                <constraint firstAttribute="height" constant="80" id="u5w-Zh-iBu"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4hs-YI-11n" secondAttribute="bottom" id="GEp-lc-1pS"/>
+                        <constraint firstItem="ChW-il-HSk" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="27.5" id="Gy3-Aj-TxY"/>
+                        <constraint firstItem="4hs-YI-11n" firstAttribute="top" secondItem="gWw-tk-Cyi" secondAttribute="bottom" constant="27.5" id="YHo-Aa-D4a"/>
+                        <constraint firstAttribute="bottom" secondItem="ChW-il-HSk" secondAttribute="bottom" id="Z0k-p9-aeu"/>
+                        <constraint firstItem="4hs-YI-11n" firstAttribute="leading" secondItem="LGV-tZ-RrY" secondAttribute="leading" id="ZJj-mX-xg8"/>
                         <constraint firstItem="gWw-tk-Cyi" firstAttribute="centerY" secondItem="LGV-tZ-RrY" secondAttribute="centerY" id="fi7-cQ-LRM"/>
+                        <constraint firstAttribute="trailing" secondItem="ChW-il-HSk" secondAttribute="trailing" id="ihU-B9-na2"/>
                         <constraint firstItem="gWw-tk-Cyi" firstAttribute="centerX" secondItem="LGV-tZ-RrY" secondAttribute="centerX" id="rae-2r-jh8"/>
                     </constraints>
                     <connections>
