@@ -59,9 +59,6 @@
                         <constraint firstItem="4hs-YI-11n" firstAttribute="centerY" secondItem="gWw-tk-Cyi" secondAttribute="centerY" id="eh9-CZ-OSV"/>
                         <constraint firstItem="4hs-YI-11n" firstAttribute="baseline" secondItem="ChW-il-HSk" secondAttribute="baseline" id="vp5-18-fKQ"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="7ig-bW-4r1" appends="YES" id="7Cj-Rs-ZQC"/>
-                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -75,11 +72,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-97.101449275362327" y="220.3125"/>
         </view>
-        <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="7ig-bW-4r1">
-            <connections>
-                <action selector="gestureAction:" destination="iN0-l3-epB" id="SUB-V9-Xaa"/>
-            </connections>
-        </screenEdgePanGestureRecognizer>
     </objects>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
