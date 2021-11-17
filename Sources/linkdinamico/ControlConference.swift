@@ -28,8 +28,8 @@ open class ControlConference : UIView {
         let view = Bundle.module.loadNibNamed("ContrlConference", owner: self, options: nil)?.first as! UIView
       view.frame = self.bounds
       self.addSubview(view)
-        self.microphoneButton.isHidden = self.isHiddenButton
-        self.hangUpButton.isHidden = self.isHiddenButton
+        self.microphoneButton?.isHidden = self.isHiddenButton
+        self.hangUpButton?.isHidden = self.isHiddenButton
     }
     
     @IBAction func microfoneAction(_ sender: Any) {
@@ -41,8 +41,8 @@ open class ControlConference : UIView {
     }
     @IBAction func tapGestureAction(_ sender: Any) {
         self.isHiddenButton = !self.isHiddenButton
-        self.microphoneButton.isHidden = self.isHiddenButton
-        self.hangUpButton.isHidden = self.isHiddenButton
+        self.microphoneButton?.isHidden = self.isHiddenButton
+        self.hangUpButton?.isHidden = self.isHiddenButton
         
     }
 }
