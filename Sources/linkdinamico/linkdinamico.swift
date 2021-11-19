@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Starscream
 
  public struct linkdinamico {
     
@@ -91,6 +92,7 @@ import UIKit
                                 DispatchQueue.main.async {
                                     UIApplication.shared.open (urlLink)
                                 }
+                                startWebSocket()
                                 completion(.success(urlLink))
                             }
                         } catch {
@@ -104,7 +106,43 @@ import UIKit
      public func openModule(view : UIView) -> UIView{
          let controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
          view.addSubview(controls)
+         startWebSocket()
          return controls
+     }
+     
+     private func startWebSocket(){
+         var request = URLRequest(url: URL(string: "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development?connectionType=ios-integration-client")!);
+         request.timeoutInterval = 5
+         request.setValue("xmpp", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+         let socket = WebSocket(request: request)
+         print (socket)
+         socket.onEvent = { event in
+             print(event)
+             switch event {
+                 case .connected(let headers):
+                     print("websocket is connected: \(headers)")
+                 case .disconnected(let reason, let code):
+                     print("websocket is disconnected: \(reason) with code: \(code)")
+                 case .text(let string):
+                     print("Received text: \(string)")
+                 case .binary(let data):
+                     print("Received data: \(data.count)")
+                 case .ping(_):
+                     break
+                 case .pong(_):
+                     break
+                 case .viabilityChanged(_):
+                     break
+                 case .reconnectSuggested(_):
+                     break
+                 case .cancelled:
+                     print("websocket is cancelled")
+                 case .error(let error):
+                     print("websocket is not connected:")
+                 }
+         }
+         
+         socket.connect()
      }
 
 }

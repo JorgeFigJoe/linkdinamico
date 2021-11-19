@@ -17,6 +17,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
+        .package(name: "Starscream", url: "https://github.com/daltoniam/Starscream", from: "4.0.4")
         //.package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", from: "8.0.0"),
     ],
     targets: [
@@ -26,6 +27,7 @@ let package = Package(
             name: "linkdinamico",
             dependencies: [
                 //.product(name: "FirebaseDynamicLinks", package: "Firebase")
+                .product(name: "Starscream", package: "Starscream")
             ]),
         .testTarget(
             name: "linkdinamicoTests",
