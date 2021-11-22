@@ -4,7 +4,7 @@ import Starscream
 
  public struct linkdinamico {
      
-     let webSocket = WebSocketManager()
+     lazy var webSocket = WebSocketManager()
         
     public init() {
     
@@ -92,7 +92,6 @@ import Starscream
                                 DispatchQueue.main.async {
                                     UIApplication.shared.open (urlLink)
                                 }
-                                startWebSocket()
                                 completion(.success(urlLink))
                             }
                         } catch {
@@ -106,12 +105,7 @@ import Starscream
      public func openModule(view : UIView) -> UIView{
          let controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
          view.addSubview(controls)
-         startWebSocket()
          return controls
-     }
-     
-     private func startWebSocket(){
-         
      }
 
 }
