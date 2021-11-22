@@ -4,7 +4,7 @@ import Starscream
 
  public struct linkdinamico {
      
-     lazy var webSocket = WebSocketManager()
+     let webSocket = WebSocketManager()
         
     public init() {
     
