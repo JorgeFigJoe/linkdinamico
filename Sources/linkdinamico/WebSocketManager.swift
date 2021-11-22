@@ -11,9 +11,10 @@ import Starscream
 class WebSocketManager {
     
     func configureWebSocket(){
-        var request = URLRequest(url: URL(string: "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development?connectionType=ios-integration-client")!);
+        //var request = URLRequest(url: URL(string: "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development?connectionType=ios-integration-client")!);
+        var request = URLRequest(url: URL(string: "wss://test-bosh.videoconferenciaclaro.com/xmpp-websocket")!);
         request.timeoutInterval = 5
-        request.setValue("xmpp", forHTTPHeaderField: "Sec-WebSocket-Protocol")
+        //request.setValue("xmpp", forHTTPHeaderField: "Sec-WebSocket-Protocol")
         let socket = WebSocket(request: request)
         socket.delegate = self
         print (socket)
