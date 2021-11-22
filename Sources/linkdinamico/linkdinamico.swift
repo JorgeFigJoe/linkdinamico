@@ -3,8 +3,8 @@ import UIKit
 import Starscream
 
  public struct linkdinamico {
-    
-    //public var type : typeClass = .MANAGEMENT
+     
+     let webSocket = WebSocketManager()
         
     public init() {
     
@@ -111,8 +111,7 @@ import Starscream
      }
      
      private func startWebSocket(){
-         let webSocket = WebSocketManager()
-         webSocket.configureWebSocket()
+         
      }
 
 }
