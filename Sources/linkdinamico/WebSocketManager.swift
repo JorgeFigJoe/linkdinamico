@@ -8,9 +8,15 @@
 import Foundation
 import Starscream
 
+
+protocol resultWebSocketDelegate : AnyObject {
+    func joinConferenceResult(room: String)
+}
+
 class WebSocketManager {
         
     let socket: WebSocket
+    var deletage: resultWebSocketDelegate?
 
     init() {
         let urlString = "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development"
@@ -19,6 +25,19 @@ class WebSocketManager {
         socket.delegate = self
         print(socket)
         socket.connect()
+    }
+    
+    func sendjoinToRoom(){
+        let json = """
+                    {
+                      "action": "joinToRoom",
+                      "payload":{
+                        "id": null,
+                        "connectionType": "ios-integration-client"
+                      }
+                    }
+                    """
+        socket.write(string: json)
     }
 }
 
@@ -32,6 +51,19 @@ extension WebSocketManager : WebSocketDelegate {
                 print("websocket is disconnected: \(reason) with code: \(code)")
             case .text(let string):
                 print("Received text: \(string)")
+            
+            let data = string.data(using: .utf8)!
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]{
+                    guard let data = json["payload"] as? NSDictionary else {return}
+                    guard let room = data["room"] as? String else {return}
+                    print(room)
+                    self.deletage?.joinConferenceResult(room: room)
+                }
+            } catch {
+                print("bad json")
+            }
+            
             case .binary(let data):
                 print("Received data: \(data.count)")
             case .ping(_):

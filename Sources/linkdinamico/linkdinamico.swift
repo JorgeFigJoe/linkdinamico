@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Starscream
 
- public struct linkdinamico {
+ public class linkdinamico {
      
      let webSocket = WebSocketManager()
         
@@ -19,6 +19,10 @@ import Starscream
         case JOIN_CONFERENCE = "JOIN_CONFERENCE"
         case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
     }
+     
+     public func joinConference(name : String, email : String) {
+         webSocket.sendjoinToRoom()
+     }
     
      public func login(type : String,
                        //command : String,
