@@ -11,13 +11,22 @@ import UIKit
     }
      
     
-     enum  typeClass : String{
-        case MANAGEMENT = "MANAGEMENT"
-        case EXPRESS_CONFERENCE = "EXPRESS_CONFERENCE"
-        case EXPRESS_PIP_CONFERENCE = "EXPRESS_PIP_CONFERENCE"
-        case GUEST = "GUEST"
-        case JOIN_CONFERENCE = "JOIN_CONFERENCE"
-        case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
+//     enum  typeClass : String{
+//        case MANAGEMENT = "MANAGEMENT"
+//        case EXPRESS_CONFERENCE = "EXPRESS_CONFERENCE"
+//        case EXPRESS_PIP_CONFERENCE = "EXPRESS_PIP_CONFERENCE"
+//        case GUEST = "GUEST"
+//        case JOIN_CONFERENCE = "JOIN_CONFERENCE"
+//        case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
+//    }
+     
+     enum  typeClass : Int{
+        case MANAGEMENT = 0
+        case EXPRESS_CONFERENCE = 1
+        case EXPRESS_PIP_CONFERENCE = 2
+        case GUEST = 3
+        case JOIN_CONFERENCE = 4
+        case JOIN_CONFERENCE_PIP = 5
     }
      
      private func joinConference() {
@@ -65,7 +74,7 @@ import UIKit
          }.resume()
      }
     
-     public func login(type : String,
+     public func login(type : Int,
                        //command : String,
                        token : String,
                        //showPIP : Bool,
