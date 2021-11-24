@@ -4,7 +4,7 @@ import UIKit
  public class linkdinamico {
      
      let webSocket = WebSocketManager()
-     private var jsonn : [String : Any]?
+     fileprivate var jsonn : [String : Any]?
         
     public init() {
     
@@ -20,7 +20,7 @@ import UIKit
         case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
     }
      
-     public func joinConference(name : String, email : String) {
+     private func joinConference(name : String, email : String) {
          webSocket.sendjoinToRoom()
      }
      
@@ -70,8 +70,7 @@ import UIKit
                        //showPIP : Bool,
                        confId : String,
                        name : String,
-                       email : String,
-                       completion: @escaping (Result<URL,Error>) -> Void){
+                       email : String){
          
          
          //let showPIPS = showPIP ? "1" : "0"
