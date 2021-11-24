@@ -9,7 +9,7 @@ import Foundation
 import Starscream
 
 
-protocol resultWebSocketDelegate : class {
+protocol resultWebSocketDelegate : AnyObject {
     func joinConferenceResult(room: String)
 }
 
@@ -77,7 +77,7 @@ extension WebSocketManager : WebSocketDelegate {
             case .cancelled:
                 print("websocket is cancelled")
             case .error(let error):
-                print("websocket is not connected: \(error)")
+            print("websocket is not connected: \(String(describing: error))")
             }
     }
     
