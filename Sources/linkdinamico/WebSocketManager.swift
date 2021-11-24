@@ -13,7 +13,7 @@ class WebSocketManager {
     let socket: WebSocket
 
     init() {
-        let urlString = "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development?connectionType=ios-integration-client"
+        let urlString = "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development"
 
         socket = WebSocket(request: URLRequest(url: URL(string: urlString)!))
         socket.delegate = self
