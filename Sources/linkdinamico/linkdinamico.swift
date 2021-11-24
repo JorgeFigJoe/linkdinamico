@@ -21,6 +21,7 @@ import UIKit
     }
      
      private func joinConference() {
+         webSocket.deletage = self
          webSocket.sendjoinToRoom()
      }
      
