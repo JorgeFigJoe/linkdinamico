@@ -88,15 +88,13 @@ import UIKit
              break
          case .EXPRESS_CONFERENCE:
              json["command"] = "StartConference"
-             self.dynamicLinkGenerate(json: json) { (Response) in
-                //
-             }
+             self.jsonn = json
+             self.joinConference()
          case .EXPRESS_PIP_CONFERENCE:
              json["command"] = "StartConference"
              json["showPIP"] = true
-             self.dynamicLinkGenerate(json: json) { (Response) in
-                //
-             }
+             self.jsonn = json
+             self.joinConference()
          case .GUEST:
              json["confId"] = confId
              json["showPIP"] = false
@@ -108,7 +106,7 @@ import UIKit
              
          case .JOIN_CONFERENCE:
              json["command"] = "StartConference"
-             //json["confId"] = confId
+             json["confId"] = confId
              json["showPIP"] = false
              json["name"] = name
              json["email"] = email
@@ -121,9 +119,8 @@ import UIKit
              json["showPIP"] = true
              json["name"] = name
              json["email"] = email
-             self.dynamicLinkGenerate(json: json) { (Response) in
-                //
-             }
+             self.jsonn = json
+             self.joinConference()
          }
      }
      
@@ -140,8 +137,8 @@ extension linkdinamico : resultWebSocketDelegate {
         guard var myjson = self.jsonn else {return}
         myjson["idRoom"] = room
         print("Me llego la URL")
-//        self.dynamicLinkGenerate(json: myjson) { (Response)  in
-//        }
+        self.dynamicLinkGenerate(json: myjson) { (Response)  in
+        }
     }
     
     
