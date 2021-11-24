@@ -9,7 +9,7 @@ import Foundation
 import Starscream
 
 
-protocol resultWebSocketDelegate : AnyObject {
+protocol resultWebSocketDelegate : class {
     func joinConferenceResult(room: String)
 }
 
