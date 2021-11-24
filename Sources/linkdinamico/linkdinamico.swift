@@ -10,16 +10,6 @@ import UIKit
     
     }
      
-    
-//     enum  typeClass : String{
-//        case MANAGEMENT = "MANAGEMENT"
-//        case EXPRESS_CONFERENCE = "EXPRESS_CONFERENCE"
-//        case EXPRESS_PIP_CONFERENCE = "EXPRESS_PIP_CONFERENCE"
-//        case GUEST = "GUEST"
-//        case JOIN_CONFERENCE = "JOIN_CONFERENCE"
-//        case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
-//    }
-     
      public enum  typeClass{
         case MANAGEMENT
         case EXPRESS_CONFERENCE
@@ -86,8 +76,6 @@ import UIKit
          //let showPIPS = showPIP ? "1" : "0"
          
          var json: [String : Any] = ["token" : token]
-         
-         //guard let eventType = typeClass(rawValue: type) else {return}
          
          switch type {
          case .MANAGEMENT:
