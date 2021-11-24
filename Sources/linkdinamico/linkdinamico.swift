@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
-import Starscream
 
  public class linkdinamico {
      
      let webSocket = WebSocketManager()
+     private var jsonn : [String : Any]?
         
     public init() {
     
@@ -23,54 +23,12 @@ import Starscream
      public func joinConference(name : String, email : String) {
          webSocket.sendjoinToRoom()
      }
-    
-     public func login(type : String,
-                       //command : String,
-                       token : String,
-                       //showPIP : Bool,
-                       confId : String,
-                       name : String,
-                       email : String,
-                       completion: @escaping (Result<URL,Error>) -> Void){
-         
-         
+     
+     private func dynamicLinkGenerate(json: [String : Any],
+                                      completion: @escaping (Result<URL,Error>) -> Void){
          //generate ShortDynamicLink
          let url = URL(string: "https://test-iam.videoconferenciaclaro.com/iam/v1/business/firebase/shortLink")!
          
-         //let showPIPS = showPIP ? "1" : "0"
-         
-         var json: [String : Any] = ["token" : token]
-         
-         guard let eventType = typeClass(rawValue: type) else {return}
-         
-         switch eventType {
-         case .MANAGEMENT:
-             break
-         case .EXPRESS_CONFERENCE:
-             json["command"] = "StartConference"
-         case .EXPRESS_PIP_CONFERENCE:
-             json["command"] = "StartConference"
-             json["showPIP"] = true
-         case .GUEST:
-             json["confId"] = confId
-             json["showPIP"] = false
-             json["name"] = name
-             json["email"] = email
-         case .JOIN_CONFERENCE:
-             json["command"] = "StartConference"
-             json["confId"] = confId
-             json["showPIP"] = false
-             json["name"] = name
-             json["email"] = email
-         case .JOIN_CONFERENCE_PIP:
-             json["command"] = "StartConference"
-             json["confId"] = confId
-             json["showPIP"] = true
-             json["name"] = name
-             json["email"] = email
-         }
-         
-
          let headers = ["Content-Type": "application/json", "Authorization" : "Basic YW1jbzpjbGFybw=="]
          let session = URLSession.shared
          var request = URLRequest(url: url)
@@ -105,6 +63,69 @@ import Starscream
                     }
          }.resume()
      }
+    
+     public func login(type : String,
+                       //command : String,
+                       token : String,
+                       //showPIP : Bool,
+                       confId : String,
+                       name : String,
+                       email : String,
+                       completion: @escaping (Result<URL,Error>) -> Void){
+         
+         
+         //let showPIPS = showPIP ? "1" : "0"
+         
+         var json: [String : Any] = ["token" : token]
+         
+         guard let eventType = typeClass(rawValue: type) else {return}
+         
+         switch eventType {
+         case .MANAGEMENT:
+             self.dynamicLinkGenerate(json: json) { (Response) in
+                //
+             }
+             break
+         case .EXPRESS_CONFERENCE:
+             json["command"] = "StartConference"
+             self.dynamicLinkGenerate(json: json) { (Response) in
+                //
+             }
+         case .EXPRESS_PIP_CONFERENCE:
+             json["command"] = "StartConference"
+             json["showPIP"] = true
+             self.dynamicLinkGenerate(json: json) { (Response) in
+                //
+             }
+         case .GUEST:
+             json["confId"] = confId
+             json["showPIP"] = false
+             json["name"] = name
+             json["email"] = email
+             self.dynamicLinkGenerate(json: json) { (Response) in
+                //
+             }
+             
+         case .JOIN_CONFERENCE:
+             json["command"] = "StartConference"
+             //json["confId"] = confId
+             json["showPIP"] = false
+             json["name"] = name
+             json["email"] = email
+             self.jsonn = json
+             self.joinConference(name: name, email: email)
+             
+         case .JOIN_CONFERENCE_PIP:
+             json["command"] = "StartConference"
+             json["confId"] = confId
+             json["showPIP"] = true
+             json["name"] = name
+             json["email"] = email
+             self.dynamicLinkGenerate(json: json) { (Response) in
+                //
+             }
+         }
+     }
      
      public func openModule(view : UIView) -> UIView{
          let controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
@@ -112,4 +133,16 @@ import Starscream
          return controls
      }
 
+}
+
+extension linkdinamico : resultWebSocketDelegate {
+    func joinConferenceResult(room: String) {
+        guard var myjson = self.jsonn else {return}
+        myjson["idRoom"] = room
+        self.dynamicLinkGenerate(json: myjson) { (Response)  in
+            //
+        }
+    }
+    
+    
 }
