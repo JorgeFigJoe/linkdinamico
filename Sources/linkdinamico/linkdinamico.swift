@@ -20,13 +20,13 @@ import UIKit
 //        case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
 //    }
      
-     public enum  typeClass : Int{
-        case MANAGEMENT = 0
-        case EXPRESS_CONFERENCE = 1
-        case EXPRESS_PIP_CONFERENCE = 2
-        case GUEST = 3
-        case JOIN_CONFERENCE = 4
-        case JOIN_CONFERENCE_PIP = 5
+     public enum  typeClass{
+        case MANAGEMENT
+        case EXPRESS_CONFERENCE
+        case EXPRESS_PIP_CONFERENCE
+        case GUEST
+        case JOIN_CONFERENCE
+        case JOIN_CONFERENCE_PIP
     }
      
      private func joinConference() {
@@ -74,7 +74,7 @@ import UIKit
          }.resume()
      }
     
-     public func login(type : Int,
+     public func login(type : typeClass,
                        //command : String,
                        token : String,
                        //showPIP : Bool,
@@ -87,9 +87,9 @@ import UIKit
          
          var json: [String : Any] = ["token" : token]
          
-         guard let eventType = typeClass(rawValue: type) else {return}
+         //guard let eventType = typeClass(rawValue: type) else {return}
          
-         switch eventType {
+         switch type {
          case .MANAGEMENT:
              self.dynamicLinkGenerate(json: json) { (Response) in
                 //
