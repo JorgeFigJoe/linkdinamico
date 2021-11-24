@@ -20,7 +20,7 @@ import UIKit
         case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
     }
      
-     private func joinConference(name : String, email : String) {
+     private func joinConference() {
          webSocket.sendjoinToRoom()
      }
      
@@ -112,7 +112,7 @@ import UIKit
              json["name"] = name
              json["email"] = email
              self.jsonn = json
-             self.joinConference(name: name, email: email)
+             self.joinConference()
              
          case .JOIN_CONFERENCE_PIP:
              json["command"] = "StartConference"
@@ -138,9 +138,9 @@ extension linkdinamico : resultWebSocketDelegate {
     func joinConferenceResult(room: String) {
         guard var myjson = self.jsonn else {return}
         myjson["idRoom"] = room
-        self.dynamicLinkGenerate(json: myjson) { (Response)  in
-            //
-        }
+        print("Me llego la URL")
+//        self.dynamicLinkGenerate(json: myjson) { (Response)  in
+//        }
     }
     
     
