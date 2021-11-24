@@ -20,7 +20,7 @@ import UIKit
 //        case JOIN_CONFERENCE_PIP = "JOIN_CONFERENCE_PIP"
 //    }
      
-     enum  typeClass : Int{
+     public enum  typeClass : Int{
         case MANAGEMENT = 0
         case EXPRESS_CONFERENCE = 1
         case EXPRESS_PIP_CONFERENCE = 2
