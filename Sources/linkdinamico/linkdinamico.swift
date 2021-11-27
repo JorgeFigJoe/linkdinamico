@@ -132,6 +132,10 @@ import UIKit
 
          return nil
      }
+     
+     public func hangUpAction(){
+         webSocket.hangUpActionn()
+     }
 
 }
 
