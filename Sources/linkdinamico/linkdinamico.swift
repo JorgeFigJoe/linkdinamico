@@ -128,10 +128,10 @@ import UIKit
          NotificationCenter.default.addObserver(self, selector: #selector(CCHangUp(notfication:)), name: Notification.Name("CCHangUp"), object: nil)
          
          
-         if let controlsView = controls{
-             controlsView.delegate = self
-             view.addSubview(controlsView)
-             return controlsView
+         if let controls = self.controls{
+             controls.delegate = self
+             view.addSubview(controls)
+             return controls
          }
          
 
