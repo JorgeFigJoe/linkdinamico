@@ -41,6 +41,7 @@ open class ControlConference : UIView {
     @IBAction func microfoneAction(_ sender: UIButton) {
         print("microphoneAction")
         self.delegate?.microphoneAction()
+        NotificationCenter.default.post(name: Notification.Name("CCHangUp"), object: nil)
     }
     
     @IBAction func telephoneAction(_ sender: UIButton) {

@@ -124,19 +124,24 @@ import UIKit
      
      public func openModule(view : UIView) -> UIView?{
          controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
+         
+         NotificationCenter.default.addObserver(self, selector: #selector(CCHangUp(notfication:)), name: Notification.Name("CCHangUp"), object: nil)
+         
+         
          if let controlsView = controls{
              controlsView.delegate = self
              view.addSubview(controlsView)
              return controlsView
          }
+         
 
          return nil
      }
      
-     public func hangUpAction(){
+     @objc private func CCHangUp(notfication: NSNotification) {
          webSocket.hangUpActionn()
      }
-
+     
 }
 
 extension linkdinamico : resultWebSocketDelegate {
