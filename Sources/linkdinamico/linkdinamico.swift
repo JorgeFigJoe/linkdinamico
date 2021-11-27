@@ -126,22 +126,18 @@ import UIKit
          controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
          
          NotificationCenter.default.addObserver(self, selector: #selector(CCHangUp(notfication:)), name: Notification.Name("CCHangUp"), object: nil)
-         
-         
+                  
          if let controls = self.controls{
              controls.delegate = self
              view.addSubview(controls)
              return controls
          }
-         
-
          return nil
      }
      
      @objc private func CCHangUp(notfication: NSNotification) {
          webSocket.hangUpActionn()
      }
-     
 }
 
 extension linkdinamico : resultWebSocketDelegate {

@@ -44,11 +44,11 @@ class WebSocketManager {
     func changeStatusMicrophone(){
         let json = """
                     {
-                     "action":"command",
-                     "payload":{
-                          "command": TOGGLE_AUDIO,
+                      "action":"command",
+                      "payload":{
+                          "command": TOGGLE_AUDIO
                           "room": "\(self.identifier)",
-                          "extraData": {},
+                          "extraData": null,
                           "connectionType": "ios-integration-client"
                       }
                     }
@@ -61,11 +61,11 @@ class WebSocketManager {
                     {
                       "action":"command",
                       "payload":{
-                          "command": HANGUP,
+                          "command": HANGUP
                           "room": "\(self.identifier)",
                           "extraData": null,
                           "connectionType": "ios-integration-client"
-                        }
+                      }
                     }
                     """
         socket.write(string: json)
