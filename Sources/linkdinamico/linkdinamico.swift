@@ -5,6 +5,7 @@ import UIKit
      
      let webSocket = WebSocketManager()
      fileprivate var jsonn : [String : Any]?
+     var controls: ControlConference?
         
     public init() {
     
@@ -121,11 +122,15 @@ import UIKit
          }
      }
      
-     public func openModule(view : UIView) -> UIView{
-         let controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
-         controls.delegate = self
-         view.addSubview(controls)
-         return controls
+     public func openModule(view : UIView) -> UIView?{
+         controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
+         if let controlsView = controls{
+             controlsView.delegate = self
+             view.addSubview(controlsView)
+             return controlsView
+         }
+
+         return nil
      }
 
 }
