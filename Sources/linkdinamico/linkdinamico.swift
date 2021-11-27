@@ -20,7 +20,7 @@ import UIKit
     }
      
      private func joinConference() {
-         webSocket.deletage = self
+         webSocket.delegate = self
          webSocket.sendjoinToRoom()
      }
      
@@ -141,10 +141,12 @@ extension linkdinamico : resultWebSocketDelegate {
 
 extension linkdinamico: actionsControlConferenceDelegate {
     func microphoneAction() {
+        print("Microphone link dinamico")
         webSocket.changeStatusMicrophone()
     }
     
     func telephoneAction() {
+        print("Telephone link dinamico")
         webSocket.hangUpActionn()
     }
     

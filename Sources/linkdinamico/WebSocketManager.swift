@@ -16,7 +16,7 @@ protocol resultWebSocketDelegate : AnyObject {
 class WebSocketManager {
         
     let socket: WebSocket
-    var deletage: resultWebSocketDelegate?
+    var delegate: resultWebSocketDelegate?
     var identifier = ""
 
     init() {
@@ -90,7 +90,7 @@ extension WebSocketManager : WebSocketDelegate {
                     guard let room = data["room"] as? String else {return}
                     print(room)
                     self.identifier = room
-                    self.deletage?.joinConferenceResult(room: room)
+                    self.delegate?.joinConferenceResult(room: room)
                 }
             } catch {
                 print("bad json")

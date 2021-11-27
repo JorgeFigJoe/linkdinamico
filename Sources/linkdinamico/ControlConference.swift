@@ -39,10 +39,12 @@ open class ControlConference : UIView {
     }
     
     @IBAction func microfoneAction(_ sender: Any) {
+        print("microphoneAction")
         self.delegate?.microphoneAction()
     }
     
     @IBAction func telephoneAction(_ sender: Any) {
+        print("telephoneAction")
         self.delegate?.telephoneAction()
     }
     @IBAction func tapGestureAction(_ sender: Any) {
