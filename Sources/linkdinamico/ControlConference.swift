@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol actionsControlConferenceDelegate: AnyObject {
+protocol actionsControlConferenceDelegate: class {
     func microphoneAction()
     func telephoneAction()
 }
