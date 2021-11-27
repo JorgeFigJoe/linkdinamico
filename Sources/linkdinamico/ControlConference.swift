@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol actionsControlConferenceDelegate: class {
+protocol actionsControlConferenceDelegate: AnyObject {
     func microphoneAction()
     func telephoneAction()
 }
@@ -19,6 +19,7 @@ open class ControlConference : UIView {
     @IBOutlet weak var hangUpButton: UIButton!
     var isHiddenButton = true
     var delegate: actionsControlConferenceDelegate?
+    var webSocket: WebSocketManager?
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -41,11 +42,17 @@ open class ControlConference : UIView {
     @IBAction func microfoneAction(_ sender: Any) {
         print("microphoneAction")
         self.delegate?.microphoneAction()
+        if let ws = self.webSocket{
+            ws.changeStatusMicrophone()
+        }
     }
     
     @IBAction func telephoneAction(_ sender: Any) {
         print("telephoneAction")
         self.delegate?.telephoneAction()
+        if let ws = self.webSocket{
+            ws.hangUpActionn()
+        }
     }
     @IBAction func tapGestureAction(_ sender: Any) {
         self.isHiddenButton = !self.isHiddenButton

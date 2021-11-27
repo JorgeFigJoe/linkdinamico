@@ -126,6 +126,7 @@ import UIKit
          controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
          if let controlsView = controls{
              controlsView.delegate = self
+             controlsView.webSocket = self.webSocket
              view.addSubview(controlsView)
              return controlsView
          }
