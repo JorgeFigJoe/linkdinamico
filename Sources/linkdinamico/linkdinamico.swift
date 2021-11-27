@@ -1,16 +1,8 @@
 import Foundation
 import UIKit
 
-public class linkdinamico: actionsControlConferenceDelegate {
-    func microphoneAction() {
-        print("microfonne link dinamico")
-    }
+public class linkdinamico {
     
-    func telephoneAction() {
-        print("telephone link dinamico")
-    }
-    
-     
      let webSocket = WebSocketManager()
      fileprivate var jsonn : [String : Any]?
      var controls: ControlConference?
@@ -154,6 +146,18 @@ extension linkdinamico : resultWebSocketDelegate {
         myjson["idRoom"] = room
         self.dynamicLinkGenerate(json: myjson) { (Response)  in
         }
+    }
+}
+
+extension linkdinamico: actionsControlConferenceDelegate {
+    func microphoneAction() {
+        print("Microphone link dinamico")
+        webSocket.changeStatusMicrophone()
+    }
+    
+    func telephoneAction() {
+        print("Telephone link dinamico")
+        webSocket.hangUpActionn()
     }
 }
 
