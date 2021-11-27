@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 
+protocol actionsControlConferenceDelegate: AnyObject {
+    func microphoneAction()
+    func telephoneAction()
+}
+
 open class ControlConference : UIView {
 
     @IBOutlet weak var microphoneButton: UIButton!
     @IBOutlet weak var hangUpButton: UIButton!
     var isHiddenButton = true
+    var delegate: actionsControlConferenceDelegate?
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -33,11 +39,11 @@ open class ControlConference : UIView {
     }
     
     @IBAction func microfoneAction(_ sender: Any) {
-        print("Accion de microfono")
+        self.delegate?.microphoneAction()
     }
     
     @IBAction func telephoneAction(_ sender: Any) {
-        print("Accion de telefono")
+        self.delegate?.telephoneAction()
     }
     @IBAction func tapGestureAction(_ sender: Any) {
         self.isHiddenButton = !self.isHiddenButton

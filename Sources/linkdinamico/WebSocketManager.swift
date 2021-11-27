@@ -17,6 +17,7 @@ class WebSocketManager {
         
     let socket: WebSocket
     var deletage: resultWebSocketDelegate?
+    var identifier = ""
 
     init() {
         let urlString = "wss://58peqhog65.execute-api.us-east-1.amazonaws.com/development"
@@ -35,6 +36,36 @@ class WebSocketManager {
                         "id": null,
                         "connectionType": "ios-integration-client"
                       }
+                    }
+                    """
+        socket.write(string: json)
+    }
+    
+    func changeStatusMicrophone(){
+        let json = """
+                    {
+                     "action":"command",
+                     "payload":{
+                          "command": TOGGLE_AUDIO,
+                          "room": "\(self.identifier)",
+                          "extraData": {},
+                          "connectionType": "ios-integration-client"
+                      }
+                    }
+                    """
+        socket.write(string: json)
+    }
+    
+    func hangUpActionn(){
+        let json = """
+                    {
+                      "action":"command",
+                      "payload":{
+                          "command": HANGUP,
+                          "room": "\(self.identifier)",
+                          "extraData": {},
+                          "connectionType": "ios-integration-client"
+                        }
                     }
                     """
         socket.write(string: json)
@@ -58,6 +89,7 @@ extension WebSocketManager : WebSocketDelegate {
                     guard let data = json["payload"] as? NSDictionary else {return}
                     guard let room = data["room"] as? String else {return}
                     print(room)
+                    self.identifier = room
                     self.deletage?.joinConferenceResult(room: room)
                 }
             } catch {

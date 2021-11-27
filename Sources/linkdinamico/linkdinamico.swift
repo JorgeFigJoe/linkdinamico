@@ -123,6 +123,7 @@ import UIKit
      
      public func openModule(view : UIView) -> UIView{
          let controls = ControlConference(frame: CGRect(x: 8 , y: 100, width: view.frame.width/2, height: view.frame.width/2) )
+         controls.delegate = self
          view.addSubview(controls)
          return controls
      }
@@ -133,9 +134,18 @@ extension linkdinamico : resultWebSocketDelegate {
     func joinConferenceResult(room: String) {
         guard var myjson = self.jsonn else {return}
         myjson["idRoom"] = room
-        print("Me llego la URL")
         self.dynamicLinkGenerate(json: myjson) { (Response)  in
         }
+    }
+}
+
+extension linkdinamico: actionsControlConferenceDelegate {
+    func microphoneAction() {
+        webSocket.changeStatusMicrophone()
+    }
+    
+    func telephoneAction() {
+        webSocket.hangUpActionn()
     }
     
     
