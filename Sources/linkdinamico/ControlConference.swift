@@ -38,12 +38,12 @@ open class ControlConference : UIView {
         self.hangUpButton?.isHidden = self.isHiddenButton
     }
     
-    @IBAction func microfoneAction(_ sender: Any) {
+    @IBAction func microfoneAction(_ sender: UIButton) {
         print("microphoneAction")
         self.delegate?.microphoneAction()
     }
     
-    @IBAction func telephoneAction(_ sender: Any) {
+    @IBAction func telephoneAction(_ sender: UIButton) {
         print("telephoneAction")
         self.delegate?.telephoneAction()
     }
