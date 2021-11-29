@@ -145,6 +145,7 @@ public class linkdinamico {
              if let controls = self.controls{
                  controls.delegate = nil
                  controls.removeFromSuperview()
+                 NotificationCenter.default.removeObserver(self)
              }
              self.controls = nil
            }
