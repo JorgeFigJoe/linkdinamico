@@ -136,7 +136,13 @@ public class linkdinamico {
      }
      
      @objc private func CCHangUp(notfication: NSNotification) {
-         webSocket.hangUpActionn()
+         let dictionary = notfication.userInfo
+         guard let command = dictionary?["command"] as? String else {return}
+         if command == "TOGGLE_AUDIO"{
+             webSocket.changeStatusMicrophone()
+         }else{
+             webSocket.hangUpActionn()
+         }
      }
 }
 

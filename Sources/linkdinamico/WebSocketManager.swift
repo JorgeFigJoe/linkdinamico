@@ -46,7 +46,7 @@ class WebSocketManager {
                     {
                       "action":"command",
                       "payload":{
-                          "command": TOGGLE_AUDIO
+                          "command": "TOGGLE_AUDIO",
                           "room": "\(self.identifier)",
                           "extraData": null,
                           "connectionType": "ios-integration-client"

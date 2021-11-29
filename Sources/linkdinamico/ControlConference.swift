@@ -41,12 +41,15 @@ open class ControlConference : UIView {
     @IBAction func microfoneAction(_ sender: UIButton) {
         print("microphoneAction")
         self.delegate?.microphoneAction()
+        let dictionary = ["command":"TOGGLE_AUDIO"]
+        NotificationCenter.default.post(name: Notification.Name("CCHangUp"), object: nil, userInfo: dictionary)
     }
     
     @IBAction func telephoneAction(_ sender: UIButton) {
         print("telephoneAction")
         self.delegate?.telephoneAction()
-        NotificationCenter.default.post(name: Notification.Name("CCHangUp"), object: nil)
+        let dictionary = ["command":"HANGUP"]
+        NotificationCenter.default.post(name: Notification.Name("CCHangUp"), object: nil, userInfo: dictionary)
     }
     @IBAction func tapGestureAction(_ sender: Any) {
         self.isHiddenButton = !self.isHiddenButton
