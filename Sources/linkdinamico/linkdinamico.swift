@@ -142,9 +142,16 @@ public class linkdinamico {
              webSocket.changeStatusMicrophone()
          }else{
              webSocket.hangUpActionn()
+             if let controls = self.controls{
+                 controls.delegate = nil
+                 controls.removeFromSuperview()
+             }
+             self.controls = nil
+           }
+             
          }
      }
-}
+
 
 extension linkdinamico : resultWebSocketDelegate {
     func joinConferenceResult(room: String) {
