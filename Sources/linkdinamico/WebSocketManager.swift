@@ -61,9 +61,9 @@ class WebSocketManager {
                     {
                       "action":"command",
                       "payload":{
-                          "command": HANGUP
+                          "command": "HANGUP"
                           "room": "\(self.identifier)",
-                          "extraData": null,
+                          "extraData": {},
                           "connectionType": "ios-integration-client"
                       }
                     }
